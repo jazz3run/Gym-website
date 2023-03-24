@@ -40,9 +40,34 @@ const scrollHeader = () =>{
 window.addEventListener('scroll', scrollHeader)
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
+    
+const scrollActive = () =>{
+  	const scrollY = window.pageYOffset
 
+	sections.forEach(current =>{
+		const sectionHeight = current.offsetHeight,
+			  sectionTop = current.offsetTop - 58,
+			  sectionId = current.getAttribute('id'),
+			  sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+		if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+			sectionsClass.classList.add('active-link')
+		}else{
+			sectionsClass.classList.remove('active-link')
+		}                                                    
+	})
+}
+window.addEventListener('scroll', scrollActive)
 
 /*=============== SHOW SCROLL UP ===============*/ 
+const scrollUp = () =>{
+	const scrollUp = document.getElementById('scroll-up')
+    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
+	this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+						: scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
@@ -52,3 +77,48 @@ window.addEventListener('scroll', scrollHeader)
 
 
 /*=============== EMAIL JS ===============*/
+const contactForm = document.getElementById('footer-form');
+const contactMessage = document.getElementById('contact-message');
+const contactUser = document.getElementById('contact-user');
+const messageUser = document.getElementById('message-user');
+
+const sendEmail = (e) =>{
+    e.preventDefault();
+
+    // Check if the field has a value
+    if(contactUser.value === '' || messageUser.value === ''){
+        // Add and remove color
+        contactMessage.classList.remove('color-green');
+        contactMessage.classList.add('color-red');
+
+        // Show message
+        contactMessage.textContent = 'Pon un email y pregunta asi me llega tu información 👆🏻'
+
+        // Remove message three seconds
+        setTimeout(() =>{
+            contactMessage.textContent = '';
+        }, 3000)
+    }else{
+        // ServiceId - templateId - #form - publicKey
+        emailjs.sendForm('service_nzawfkj','template_gwdamxq','#footer-form','OmsQrQBfILQg8CYD2')
+            .then(() =>{
+                // Show message and add color
+                contactMessage.classList.add('color-green');
+                contactMessage.textContent = "Has enviado todo correctamente 💪🏻";
+
+                // Remove message after 3 seconds
+                setTimeout(() =>{
+                    contactMessage.textContent = '';
+                }, 3000)
+            }, (error) => {
+                // Mail sending error
+                alert('OPSS!!, ALGO SALIO MAL...', error)
+            })
+
+            // To clear the inputs field
+            contactUser.value = '';
+            contactMessage.value = '';
+    }
+}
+
+contactForm.addEventListener('submit', sendEmail);
