@@ -1,3 +1,21 @@
+/*================================ DIAS ================================*/
+let listElements = document.querySelectorAll('.dia__link');
+
+listElements.forEach(listElement =>{
+    listElement.addEventListener('click', ()=>{
+        listElement.classList.toggle('plus');
+
+        let height = 0;
+        let menu = listElement.nextElementSibling;
+        console.log(menu.scrollHeight)
+        if(menu.clientHeight == 0){
+            height = menu.scrollHeight;
+        }
+
+        menu.style.height = `${height}px`
+    })
+})
+
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
@@ -69,62 +87,6 @@ const scrollUp = () =>{
 }
 window.addEventListener('scroll', scrollUp)
 
-/*=============== SCROLL REVEAL ANIMATION ===============*/
-
-
-/*=============== CALCULATE JS ===============*/
-const calculateForm = document.getElementById('calculate-form');
-const calculateCm = document.getElementById('calculate-cm');
-const calculateKg = document.getElementById('calculate-kg');
-const calculateMessage = document.getElementById('calculate-message');
-
-const calculateBmi = (e) =>{
-    e.preventDefault()
-
-    // Check if the fields have a value
-    if(calculateCm.value === '' || calculateKg.value === ''){
-        // Add and remove color
-        calculateMessage.classList.remove('color-green')
-        calculateMessage.classList.add('color-red')
-
-        // Show menssage
-        calculateMessage.textContent = 'Llenar los datos requeridos🤷‍'
-
-        // Remove message three seconds
-        setTimeout(() =>{
-            calculateMessage.textContent = ''
-        }, 3000)
-    } else{
-        // BMI Formula
-        const cm = calculateCm.value / 100;
-        const kg = calculateKg.value;
-        const bmi = Math.round(kg / (cm * cm));
-
-        // Show your health status
-        if(bmi < 18.5){
-            //Add color and display message
-            calculateMessage.classList.add('color-green');
-            calculateMessage.textContent = `Tu IMC es ${bmi} y estas bajo de peso 😓`
-        } else if(bmi < 25){
-            calculateMessage.classList.add('color-green');
-            calculateMessage.textContent = `Tu IMC es ${bmi} y estas saludable 😉`
-        } else{
-            calculateMessage.classList.add('color-green');
-            calculateMessage.textContent = `Tu IMC es ${bmi} y estas con peso elevado 😔`
-        }
-
-        // To clear the input field
-        calculateCm.value = '';
-        calculateKg.value = '';
-
-        // Remove the message after 4 seconds
-        setTimeout(() =>{
-            calculateMessage.textContent = ''
-        }, 4000)
-    }
-}
-
-calculateForm.addEventListener('submit', calculateBmi);
 
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById('footer-form');
