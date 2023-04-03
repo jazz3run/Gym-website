@@ -97,6 +97,12 @@ img {
   height: auto;
 }
 
+/*=============== SELECT ==================*/
+::selection { 
+    background: var(--first-color); /*Color naranja para el fondo*/
+    color: var(--title-color);  /*Color blanco para el texto seleccionado*/
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1124px;
@@ -362,7 +368,7 @@ img {
 
 
 .rutina__container .video{
-  width: 80%;
+  width: 95%;
   border-radius: .5rem;
   margin: 0 auto;
 }
@@ -393,8 +399,6 @@ img {
   font-weight: var(--font-bold);
   font-size: var(--h1-font-size);
   justify-content: flex-start;
-  column-gap: 1rem;
-  margin-left: 3rem;
   align-items: center;
   cursor: pointer;
 }
@@ -620,6 +624,11 @@ img {
     height: 9rem;
   }
 
+  .section__titles{
+    flex-direction: column;
+    row-gap: .5rem;
+  }
+
   .dias__opcion{
     width: 90%;
   }
@@ -627,6 +636,10 @@ img {
   .dia__link{
     font-size: var(--small-font-size);
     margin-left:  1rem
+  }
+
+  .dia__link i{
+    margin: 0 auto;
   }
 
   .subdia__img{
@@ -642,6 +655,58 @@ img {
   }
 }
 
+@media screen and (min-width: 340px){
+  .rutina__container{
+    width: 90%;
+    height: 15rem;
+  }
+
+  .rutina__container .video{
+    width: 19.3rem;
+    height: 13rem;
+  }
+
+  .section__titles{
+    flex-direction: column;
+    row-gap: .4rem;
+  }
+
+  .dia__link{
+    margin-inline: 1rem;
+    column-gap: 2rem;
+    font-size: var(--h3-font-size);
+  }
+}
+
+@media screen and (min-width: 450px){
+  .rutina__container .video{
+    width: 24.3rem;
+    height: 13rem;
+  }
+
+  .dia__link{
+    column-gap: 5rem;
+    margin-left: 3rem;
+  }
+}
+
+@media screen and (min-width: 600px){
+  .rutina__container{
+    width: 90%;
+    height: 20rem;
+  }
+
+  .rutina__container .video{
+    width: 34.3rem;
+    height: 17rem;
+  }
+
+  .dia__link{
+    font-size: var(--h2-font-size);
+    column-gap: 7rem;
+    margin-left: 3rem;
+  }
+}
 /* For medium devices */
 @media screen and (min-width: 768px){
   .nav__menu{
@@ -658,12 +723,12 @@ img {
   }
 
   .rutina__container{
-    height: 20rem;
+    height: 25rem;
   }
 
   .rutina__container .video{
-    width: 32rem;
-    height: 17rem;
+    width: 43rem;
+    height: 23rem;
   }
 
   .dia__link{
@@ -755,8 +820,13 @@ img {
     width: 545px;
   }
 
+  .rutina__container{
+    height: 30rem;
+  }
+
   .rutina__container .video{
-    width: 42rem;
+    width: 58rem;
+    height: 29rem;
   }
 
   .dia__link{
@@ -803,13 +873,12 @@ img {
   }
 
   .rutina__container{
-    width: 75rem;
-    height: 30rem;
+    height: 40rem;
   }
 
   .rutina__container .video{
-    width: 73rem;
-    height: 28rem;
+    width: 63rem;
+    height: 39rem;
   }
 
   .dia__link{
@@ -821,4 +890,10 @@ img {
     right: 3rem;
   }
 
+}
+
+@media screen and (min-width: 1300px){
+  .rutina__container .video{
+    width: 75rem;
+  }
 }

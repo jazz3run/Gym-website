@@ -97,6 +97,12 @@ img {
   height: auto;
 }
 
+/*=============== SELECT ==================*/
+::selection { 
+    background: var(--first-color); /*Color naranja para el fondo*/
+    color: var(--title-color);  /*Color blanco para el texto seleccionado*/
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1124px;
