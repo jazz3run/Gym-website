@@ -544,6 +544,14 @@ img {
   color: var(--text-color-light);
 }
 
+.footer__copy a{
+  color: var(--first-color);
+}
+
+.footer__copy a:hover{
+  text-decoration: underline;
+}
+
 .footer__message{
   position: absolute;
   transform: translateY(1rem);

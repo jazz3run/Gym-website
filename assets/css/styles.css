@@ -329,7 +329,8 @@ img {
   position: relative;
   z-index: 1;
   width: 350px;
-  margin: 0 auto;
+  margin: -2.6rem auto;
+  top: -40px;
 }
 
 /*=============== BUTTON ===============*/
@@ -456,12 +457,13 @@ img {
 }
 
 .choose__container{
-  row-gap: 3rem;
+  row-gap: 1rem;
 }
 
 .choose__content .section__data{
   margin-bottom: 2rem;
 }
+
 
 .choose__description{
   text-align: center;
@@ -523,7 +525,8 @@ img {
   display: block;
   position: relative;
   z-index: 1;
-  margin: 0 auto;
+  margin: -30px auto;
+  top: -1.9rem;
 }
 
 /*=============== PRICING ===============*/
@@ -658,6 +661,9 @@ img {
 .calculate__img{
   width: 200px;
   justify-self: center;
+  border-radius: 1rem;
+  border: .5px solid var(--first-color);
+  box-shadow: -8px 28px 166px -16px rgba(5,255,43,.1);
 }
 
 .calculate__message{
@@ -772,6 +778,14 @@ img {
 .footer__copy{
   font-size: var(--smaller-font-size);
   color: var(--text-color-light);
+}
+
+.footer__copy a{
+  color: var(--first-color);
+}
+
+.footer__copy a:hover{
+  text-decoration: underline;
 }
 
 .footer__message{
@@ -985,8 +999,9 @@ img {
 
   .home__img{
     position: absolute;
-    width: 550px;
-    top: 13.3rem;
+    width: 580px;
+    top: .3rem;
+    right: -4rem;
   }
 
   .home__triangle{
@@ -1070,7 +1085,7 @@ img {
 
   .home__img{
     width: 700px;
-    top: 8.3rem;
+    top: -6rem;
   }
 
   .home__triangle{
