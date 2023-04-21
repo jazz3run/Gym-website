@@ -440,6 +440,7 @@ img {
 
 .subdia__description p{
   font-size: var(--normal-font-size);
+  margin-inline: 1em;
 }
 
 /* Más */
@@ -674,7 +675,7 @@ img {
   }
 
   .subdia__description{
-    font-size: var(--smaller-font-size);
+    font-size: var(--small-font-size);
   }
 
   .subdia__description p{
