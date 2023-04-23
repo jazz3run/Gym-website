@@ -112,7 +112,7 @@ const sendEmail = (e) =>{
         }, 3000)
     }else{
         // ServiceId - templateId - #form - publicKey
-        emailjs.sendForm('service_nzawfkj','template_gwdamxq','#footer-form','OmsQrQBfILQg8CYD2')
+        emailjs.sendForm('service_leaixek','template_gwdamxq','#footer-form','OmsQrQBfILQg8CYD2')
             .then(() =>{
                 // Show message and add color
                 contactMessage.classList.add('color-green');
@@ -134,3 +134,15 @@ const sendEmail = (e) =>{
 }
 
 contactForm.addEventListener('submit', sendEmail);
+
+/*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 400,
+})
+
+sr.reveal(`.home__data, .footer__container, .footer__group, .rutina__container`)
+sr.reveal(`.biografia__container, .dias__opciones`, {interval: 700, duration: 1500})
+

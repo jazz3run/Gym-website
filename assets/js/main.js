@@ -70,7 +70,18 @@ const scrollUp = () =>{
 window.addEventListener('scroll', scrollUp)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2000,
+    delay: 400,
+})
 
+sr.reveal(`.home__data, .footer__container, .footer__group`)
+sr.reveal(`.home__img`, {delay: 700, origin: 'bottom'})
+sr.reveal(`.program__card, .pricing__card`, {interval: 100})
+sr.reveal(`.choose__img, .calculate__content`, {origin: 'left'})
+sr.reveal(`.choose__content, .calculate__img`, {origin: 'right'})
 
 /*=============== CALCULATE JS ===============*/
 const calculateForm = document.getElementById('calculate-form');
@@ -150,7 +161,7 @@ const sendEmail = (e) =>{
         }, 3000)
     }else{
         // ServiceId - templateId - #form - publicKey
-        emailjs.sendForm('service_nzawfkj','template_gwdamxq','#footer-form','OmsQrQBfILQg8CYD2')
+        emailjs.sendForm('service_leaixek','template_gwdamxq','#footer-form','OmsQrQBfILQg8CYD2')
             .then(() =>{
                 // Show message and add color
                 contactMessage.classList.add('color-green');
